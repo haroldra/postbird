@@ -1,0 +1,19 @@
+table
+  thead
+    tr
+      th name
+      th default version
+      th installed_version
+      th
+  tbody
+    each column in rows
+      tr
+        td= column.name
+        td= column.default_version
+        td
+          if column.installed_version
+            strong= column.installed_version
+            button(exec="uninstall('" + column.name + "')") Uninstall
+          else
+            button(exec="install('" + column.name + "')") Install
+        td= column.comment

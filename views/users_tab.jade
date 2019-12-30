@@ -1,0 +1,20 @@
+table
+  thead
+    tr
+      th Role name
+      th List of roles
+      th Member of
+      th
+  tbody
+    each user in rows
+      tr
+        td= user.rolname
+        td= user.roles.join(', ')
+        td= user.memberof
+        td
+          a(exec="editUser('" + user.rolname + "')") Edit
+          = " "
+          a(exec="deleteUser('" + user.rolname + "')") Delete
+
+button.createUserBtn(exec="newUserDialog") Create new user
+button.createRoleBtn(exec="newRole") Create new role
